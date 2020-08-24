@@ -1,0 +1,35 @@
+npm init -y
+
+npm i express ejs express-ejs-layouts           // install express is the framework, ejs template engine like thymeleaf, layouts for htmls
+
+npm i --save-dev nodemon                        // auto build and restart server on save.
+
+
+/////////////// package.json
+
+  "scripts": {
+    "start": "node server.js",      // lehet meghivni ezt a scriptet terminalbol, igy: npm run start, ennek hatasara ez fog lefutni, lehetne ezt is npm node server.js
+    "devStart": "nodemon server.js" // ugyanugy npm run devStart es megy ez a parancs
+  },
+
+  ///////////////// folders
+
+  routes  - mas neven controllers
+  views   - views
+  models  - models Pojos, database models
+
+  igy lesz az mvc model meg.
+
+  ////////////////// frontend 
+
+  public  - ide jon a frontend a javascipt fileokkal
+
+
+  //////////////// database
+
+  npm i mongoose    // elozoleg install mongoDB
+
+  npm i --save-dev dotenv    // olyan lesz mint az application.property  ide lehet eteeni cuccokat
+
+  //////////////////// .env
+  DATABASE_URL=mongodb://localhost/mybrary        letrehoztam elotte mongoDB be egy mybrary databaset,  use mybrary   parancsal.
