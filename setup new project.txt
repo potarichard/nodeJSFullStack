@@ -33,3 +33,11 @@ npm i --save-dev nodemon                        // auto build and restart server
 
   //////////////////// .env
   DATABASE_URL=mongodb://localhost/mybrary        letrehoztam elotte mongoDB be egy mybrary databaset,  use mybrary   parancsal.
+
+  ///////////////////// git
+  inited git, added git repo on github, opushed to origin
+
+  //////////////// heroku
+
+  created new app on heroku (mynodejsfullstack),  installed heroku cli,  used heroku login,   then followed the commands on the heroku package
+  basically just added remote git to heroku source.
