@@ -7,7 +7,7 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser')                              // @RequestBody, ahhoz kell hogy server tudjon fogadni endpontjain adott pojot. post, vagy put ban
 const methodOverride = require('method-override')
 
 const indexRouter = require('./routes/index')
@@ -20,7 +20,7 @@ app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
 app.use(methodOverride('_method'))
 app.use(express.static('public'))
-app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }))
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }))      // use bodyparser, + multipart file korlatozas.
 
 const mongoose = require('mongoose')
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })

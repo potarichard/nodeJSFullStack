@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
 
 // New Author Route
 router.get('/new', (req, res) => {
-  res.render('authors/new', { author: new Author() })
+  res.render('authors/new', { author: new Author() })     // ejs-nek at lesz adva, az author, tud majd vele dolgozni a html-en
 })
 
 // Create Author Route
@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
     name: req.body.name
   })
   try {
-    const newAuthor = await author.save()
+    const newAuthor = await author.save()                 // az author mongoose modelkent van exportolva, szoval olyan mintha lenne egy classom, amibe csak egy name field van, de extendelem a mongoosemodelt, igy egy csomo database related methodot tudok hasznalni, ilyena  save is
     res.redirect(`authors/${newAuthor.id}`)
   } catch {
     res.render('authors/new', {

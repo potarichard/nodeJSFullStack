@@ -15,7 +15,7 @@ npm i --save-dev nodemon                        // auto build and restart server
   ///////////////// folders
 
   routes  - mas neven controllers
-  views   - views
+  views   - views, itt mar a frontend van, olyan mint a thymeleaf, a server renderel htmleket es azt latja a frontend.
   models  - models Pojos, database models
 
   igy lesz az mvc model meg.
@@ -57,3 +57,7 @@ npm i --save-dev nodemon                        // auto build and restart server
   DATABASE_URL (key)  value meg ugye: mongodb+srv://user:Kekqz5STJUAtjTrP@cluster0.auqny.mongodb.net/mybrary?retryWrites=true&w=majority 
 
   es eddig igy mukodik!!!
+
+  ////////////// body parser
+
+  npm i body-parser       // ez arra kell hogy pl a formbol kuldott author pojo a server az adott @PostMappingon tudja fogadni, olyan mint springnel a @ReuestBody Author
