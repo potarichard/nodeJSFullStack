@@ -56,8 +56,13 @@ npm i --save-dev nodemon                        // auto build and restart server
   herokunal -> settings declare envioriment variables : 
   DATABASE_URL (key)  value meg ugye: mongodb+srv://user:Kekqz5STJUAtjTrP@cluster0.auqny.mongodb.net/mybrary?retryWrites=true&w=majority 
 
+
   es eddig igy mukodik!!!
+
+  hozza kell majd afni a cloudmongodb nel whitelistre minden ip cimet. 0.0.0.0/0  ugye csak a herokus app cimet kene dehat azt nem tudjuk pontosan csak a dnst.
 
   ////////////// body parser
 
   npm i body-parser       // ez arra kell hogy pl a formbol kuldott author pojo a server az adott @PostMappingon tudja fogadni, olyan mint springnel a @ReuestBody Author
+
+  npm i multer            // helps with multipart files.

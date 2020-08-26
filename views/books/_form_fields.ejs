@@ -1,16 +1,16 @@
-<div class="form-row">
+<div class="form-row">                                    <!-- ez is egy tobbszor hasznalatos reszlet, (angular component, de csak html ergo ejs), ez leeht majd beagyazni mas ejsbe, include (... akarmi a syntax) -->
   <div class="form-item">
     <label>Title</label>
-    <input type="text" name="title" value="<%= book.title %>">
+    <input type="text" name="title" value="<%= book.title %>">  <!-- %= book.title %  -->
   </div>
   <div class="form-item">
     <label>Author</label>
-    <select name="author">
-      <% authors.forEach(author => { %>
-        <% if (author.id === book.author) { %>
+    <select name="author">                                <!-- ez a sok % os, meg if es cucc nem renderelodik ki, majd a server tudja h mikor kell. -->
+      <% authors.forEach(author => { %>                   <!-- authors ennek jonni kell ide valahonnan, valahol a bookroute ba lesz megadva mint child ? -->
+        <% if (author.id === book.author) { %>            <!-- === ugye nem csak az erteket de a tipust is nezi -->
           <option selected label="<%= author.name %>" value="<%= author.id %>">
         <% } else { %>
-          <option label="<%= author.name %>" value="<%= author.id %>">
+          <option label="<%= author.name %>" value="<%= author.id %>">    <!-- a %= author.id % kozt ugye igy van bindingolva --> 
         <% } %>
       <% }) %>
     </select>

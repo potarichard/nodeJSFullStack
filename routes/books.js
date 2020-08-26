@@ -6,19 +6,20 @@ const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif']
 
 // All Books Route
 router.get('/', async (req, res) => {
-  let query = Book.find()
+  let query = Book.find()           // queryt modositgatjuk majd de kell egy sema, gondolom valmi alap sema jellegut ad a Book.find(), csak felepitunk egy queryt es kesobb executoljuk
+                                    // nem csak az osszes bookot akarjuk latni, hanem keresni is akarunk pl nev alapjan, na ezek szuresehez kell itt felepiteni  a queryt
   if (req.query.title != null && req.query.title != '') {
-    query = query.regex('title', new RegExp(req.query.title, 'i'))
+    query = query.regex('title', new RegExp(req.query.title, 'i'))    // turn into case insensitive
   }
   if (req.query.publishedBefore != null && req.query.publishedBefore != '') {
-    query = query.lte('publishDate', req.query.publishedBefore)
+    query = query.lte('publishDate', req.query.publishedBefore)           // less than or equal to the date, gte greater than...
   }
   if (req.query.publishedAfter != null && req.query.publishedAfter != '') {
-    query = query.gte('publishDate', req.query.publishedAfter)
+    query = query.gte('publishDate', req.query.publishedAfter)            // req.query.publishedAfter  ezek mind az urlbol jonnek
   }
   try {
     const books = await query.exec()
-    res.render('books/index', {
+    res.render('books/index', {         // itt egy komplett objectet adunk at
       books: books,
       searchOptions: req.query
     })
@@ -34,7 +35,7 @@ router.get('/new', async (req, res) => {
 
 // Create Book Route
 router.post('/', async (req, res) => {
-  const book = new Book({
+  const book = new Book({                             // a sok re.body.akarmi   ezeket a feltelepitett body parser miatt tudja, @RequestBody sprinfgnel
     title: req.body.title,
     author: req.body.author,
     publishDate: new Date(req.body.publishDate),
@@ -127,7 +128,7 @@ async function renderEditPage(res, book, hasError = false) {
 
 async function renderFormPage(res, book, form, hasError = false) {
   try {
-    const authors = await Author.find({})
+    const authors = await Author.find({})                                   // query authors so we can create a params object, and inject it to the ejs page
     const params = {
       authors: authors,
       book: book
@@ -139,7 +140,7 @@ async function renderFormPage(res, book, form, hasError = false) {
         params.errorMessage = 'Error Creating Book'
       }
     }
-    res.render(`books/${form}`, params)
+    res.render(`books/${form}`, params)                                       // formfields partialsba lehet hasznalni, bar nem, mert ott konkretan author van beinjectalva
   } catch {
     res.redirect('/books')
   }

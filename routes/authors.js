@@ -6,11 +6,11 @@ const Book = require('../models/book')
 // All Authors Route
 router.get('/', async (req, res) => {
   let searchOptions = {}
-  if (req.query.name != null && req.query.name !== '') {
-    searchOptions.name = new RegExp(req.query.name, 'i')
+  if (req.query.name != null && req.query.name !== '') {    // get requestnel csak a urlbe van parameterkent az ertek, nem a bodyba kuldi.
+    searchOptions.name = new RegExp(req.query.name, 'i')    // i- case insensitive.
   }
   try {
-    const authors = await Author.find(searchOptions)
+    const authors = await Author.find(searchOptions)      // ugye itt is Author modell van hasznalva ami mongoose schema, ergo adatabla csomo methoddal., alapbol mindet, ha van search akkor csak olyanokat amik like name.
     res.render('authors/index', {
       authors: authors,
       searchOptions: req.query
@@ -28,7 +28,7 @@ router.get('/new', (req, res) => {
 // Create Author Route
 router.post('/', async (req, res) => {
   const author = new Author({
-    name: req.body.name
+    name: req.body.name                                   // POST request a bodyba kuldi az infot
   })
   try {
     const newAuthor = await author.save()                 // az author mongoose modelkent van exportolva, szoval olyan mintha lenne egy classom, amibe csak egy name field van, de extendelem a mongoosemodelt, igy egy csomo database related methodot tudok hasznalni, ilyena  save is
