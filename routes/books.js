@@ -4,6 +4,8 @@ const Book = require('../models/book')
 const Author = require('../models/author')
 const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif']
 
+// async callback: a database queryk async mukodesuek, kell az await, igy olvashatobb a kod !
+
 // All Books Route
 router.get('/', async (req, res) => {
   let query = Book.find()           // queryt modositgatjuk majd de kell egy sema, gondolom valmi alap sema jellegut ad a Book.find(), csak felepitunk egy queryt es kesobb executoljuk
@@ -55,8 +57,8 @@ router.post('/', async (req, res) => {
 // Show Book Route
 router.get('/:id', async (req, res) => {
   try {
-    const book = await Book.findById(req.params.id)
-                           .populate('author')
+    const book = await Book.findById(req.params.id)       // lekerdezi a bookot id alapjan
+                           .populate('author')            // az author fieldet kitolti, de nem author id val, hanem az author osszes tulajdonságával, jelen esetben csak name field van igy csak azzal.
                            .exec()
     res.render('books/show', { book: book })
   } catch {

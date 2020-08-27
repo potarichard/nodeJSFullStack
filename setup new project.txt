@@ -71,3 +71,13 @@ npm i --save-dev nodemon                        // auto build and restart server
   // from browser you can only do get and post request,  PUT, DELETE request no, need to install method override
 
   npm i method-override
+
+  //// javitasok, fejlesztesek
+
+  spring fejelsztesi modelt kovetve kene meg egy service reteg, routesban levo logikakat at kell vinni abba a retegbe
+  a viewst en kivennem, és csak rest responseok lennének, fronend ettol a projektől teljesen fuggetlen lenne, mondjuk react vagy angular, vagy sima JS 
+  nincs repository reteg, rogton a modellen (entity) vegezzuk a database methodokat
+  valamilyen security kene bele 
+
+  maradna backenden csak a : server config, routes(controller reteg), service reteg(buisness logic), models(entity), env(app.properties)
+  
