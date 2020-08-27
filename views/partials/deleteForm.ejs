@@ -1,3 +1,5 @@
-<form method="POST" action="<%= url %>?_method=DELETE">
+<form method="POST" action="<%= url %>?_method=DELETE">                 <!-- url: `/authors/${author.id}`  index.ejs bol jott, childnak at lett adva, "?_method=DELETE" e miatt fogja tudni a server hogy override es ez valojaban egy delete request, igy 
+                                                                              majd nem az ugyanezzel az url el definialt /authors/id get request kell, hanem a delete request
+                                                                            a method override ugye CSAK FORM ON MUKODIK, MERT A FORM method POST, submit es azt irja felul., angular httpclient ugye tud mindent...., de itt jelezni kell frontenden is, es a backenden is hogy override van -->
   <button class="btn btn-danger" type="submit">Delete</button>
 </form>

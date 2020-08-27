@@ -3,6 +3,10 @@ const router = express.Router()
 const Author = require('../models/author')
 const Book = require('../models/book')
 
+
+// szami a requestek sorrendje, mert a server top -> bottom nezi a matching urleket a requestre es ha pl. lat egy ilyet hogy router.get('/new'), router.get('/:id'),
+//  akkor ha router.get('/:id' lenne elobb akkor lehet olyan eset h /authors/new, es nezi hogy aha, az id az "new" es az alapjan megy tovabb, ez nagyon edge case de lehetnek ilyenk.
+
 // All Authors Route
 router.get('/', async (req, res) => {
   let searchOptions = {}
@@ -43,7 +47,7 @@ router.post('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const author = await Author.findById(req.params.id)
+    const author = await Author.findById(req.params.id)                       // url ben hozzacsapott id  (router.get('/:id'), konkretan latszik az urlben
     const books = await Book.find({ author: author.id }).limit(6).exec()
     res.render('authors/show', {
       author: author,
@@ -63,7 +67,7 @@ router.get('/:id/edit', async (req, res) => {
   }
 })
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {                              // from browser you can only do get and post request,  PUT, DELETE request no, need to install method override
   let author
   try {
     author = await Author.findById(req.params.id)

@@ -66,3 +66,8 @@ npm i --save-dev nodemon                        // auto build and restart server
   npm i body-parser       // ez arra kell hogy pl a formbol kuldott author pojo a server az adott @PostMappingon tudja fogadni, olyan mint springnel a @ReuestBody Author
 
   npm i multer            // helps with multipart files.
+
+
+  // from browser you can only do get and post request,  PUT, DELETE request no, need to install method override
+
+  npm i method-override

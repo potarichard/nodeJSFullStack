@@ -18,7 +18,7 @@ app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'))                                      // a formokrol majd "_method" elojelzessel kell jelezni hogy PUT, DELETE request.
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }))      // use bodyparser, + multipart file korlatozas.
 

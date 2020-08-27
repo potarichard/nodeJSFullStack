@@ -6,5 +6,5 @@
 </div>
 <% if (booksByAuthor.length > 0) { %>
   <h2 class="page-header">Books By Author</h2>
-  <%- include('../partials/bookGrid', { books: booksByAuthor }) %>
+  <%- include('../partials/bookGrid', { books: booksByAuthor }) %>        <!-- booksByAuthor igy adta at a render nek a server a propertyt, es books kent adom at a childnak a books-t -->
 <% } %>

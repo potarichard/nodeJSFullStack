@@ -1,5 +1,10 @@
 <h2 class="page-header">Edit Author</h2>
 <form action="/authors/<%= author.id %>?_method=PUT" method="POST">
+
+   <!-- url: `/authors/${author.id}`  index.ejs bol jott, childnak at lett adva, "?_method=PUT" e miatt fogja tudni a server hogy override es ez valojaban egy put request, igy 
+    majd nem az ugyanezzel az url el definialt /authors/id get request kell, hanem a put request
+    a method override ugye CSAK FORM ON MUKODIK, MERT A FORM method POST, submit es azt irja felul., angular httpclient ugye tud mindent...., de itt jelezni kell frontenden is, es a backenden is hogy override van -->
+
   <%- include('_form_fields') %>
   <div class="form-row form-row-end btn-row">
     <a class="btn btn-danger" href="/authors/<%= author.id %>">Cancel</a>
