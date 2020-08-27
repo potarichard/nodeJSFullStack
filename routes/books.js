@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
     pageCount: req.body.pageCount,
     description: req.body.description
   })
-  saveCover(book, req.body.cover)
+  saveCover(book, req.body.cover)                   // stringge alkitott cover kep
 
   try {
     const newBook = await book.save()
@@ -150,7 +150,7 @@ function saveCover(book, coverEncoded) {
   if (coverEncoded == null) return
   const cover = JSON.parse(coverEncoded)
   if (cover != null && imageMimeTypes.includes(cover.type)) {
-    book.coverImage = new Buffer.from(cover.data, 'base64')
+    book.coverImage = new Buffer.from(cover.data, 'base64')               // springben volt ilyen, bytearraykent lett tarolva a kep
     book.coverImageType = cover.type
   }
 }

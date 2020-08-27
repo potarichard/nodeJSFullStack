@@ -59,7 +59,7 @@ npm i --save-dev nodemon                        // auto build and restart server
 
   es eddig igy mukodik!!!
 
-  hozza kell majd afni a cloudmongodb nel whitelistre minden ip cimet. 0.0.0.0/0  ugye csak a herokus app cimet kene dehat azt nem tudjuk pontosan csak a dnst.
+  hozza kell majd afni a cloudmongodb nel WHITELIST minden ip cimet. 0.0.0.0/0  ugye csak a herokus app cimet kene dehat azt nem tudjuk pontosan csak a dnst.
 
   ////////////// body parser
 

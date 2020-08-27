@@ -1,3 +1,5 @@
+// filepond dokumentacio alapjan, ezt a scriptet a layout hivja be (ez most a main), tehát aktiv lesz mindig
+
 const rootStyles = window.getComputedStyle(document.documentElement)
 
 if (rootStyles.getPropertyValue('--book-cover-width-large') != null && rootStyles.getPropertyValue('--book-cover-width-large') !== '') {
@@ -22,5 +24,5 @@ function ready() {
     imageResizeTargetHeight: coverHeight
   })
   
-  FilePond.parse(document.body)
+  FilePond.parse(document.body)       // Filepond objectre parsolja a bodyt.
 }

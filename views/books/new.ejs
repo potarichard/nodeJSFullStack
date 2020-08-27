@@ -1,5 +1,5 @@
 <h2 class="page-header">New Book</h2>
-<form action="/books" method="POST" enctype="multipart/form-data">    <!-- mintha ez kimaradt volna enctype="multipart/form-data" ez mondja meg hogy lehet file is a postban -->
+<form action="/books" method="POST">    <!-- enctype="multipart/form-data" ez megse kell mert a FilePond egy stringge parsolja a kepet... mintha ez kimaradt volna enctype="multipart/form-data" ez mondja meg hogy lehet file is a postban -->
   <%- include('_form_fields') %>                          <!-- egyan ebben a mappaban van definialva a form-->
   <div class="form-row form-row-end btn-row">
     <a class="btn btn-danger" href="/books">Cancel</a>

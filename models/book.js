@@ -22,7 +22,7 @@ const bookSchema = new mongoose.Schema({
     required: true,
     default: Date.now
   },
-  coverImage: {
+  coverImage: {                                       // elozoleg nem magat a kepet taroltuk csak a nevet, es a filepathot, most igy mar a konkret kepet tarolja, stringe alaktitva
     type: Buffer,
     required: true
   },
@@ -36,10 +36,10 @@ const bookSchema = new mongoose.Schema({
     ref: 'Author'                                     // melyik adattablat nezze, ennek egyezni kell azzal amit authornal megadtunk: module.exports = mongoose.model('Author', authorSchema)
   }
 })
-
+                                                                        // azert van function es nem lamda mert a this akarom hasznalni
 bookSchema.virtual('coverImagePath').get(function() {                   // virtual function azt jelenti hogy csinalunk egy functiont coverImagePath nevvel ?, es adat alapjan megmnondjuk hogy hol van a file systembe a kep
   if (this.coverImage != null && this.coverImageType != null) {         // igen jol gondoltam, book.coverImagePath  egy olyan property lesz mintha csak databaseben lenne tarolva, mint a tobbi pl book neve, de ugye ez felteteles dolog hogy van path a kephez, mind1 ilyet is lattunk
-    return `data:${this.coverImageType};charset=utf-8;base64,${this.coverImage.toString('base64')}`
+    return `data:${this.coverImageType};charset=utf-8;base64,${this.coverImage.toString('base64')}`   // kep tipus es kep adata t adja vissza stringkent, ezt majd a FilePond Parser tudjka visszadni lathato keppe
   }
 })
 
