@@ -1,3 +1,4 @@
+/* The :root selector matches the document's root element. */
 :root {
   --color-btn-primary-background: hsl(var(--color-base-hue), 100%, 83%);
   --color-btn-primary-background-dark: hsl(var(--color-base-hue), 100%, 73%);

@@ -80,4 +80,9 @@ npm i --save-dev nodemon                        // auto build and restart server
   valamilyen security kene bele 
 
   maradna backenden csak a : server config, routes(controller reteg), service reteg(buisness logic), models(entity), env(app.properties)
+
+  ////////////// update css
+
+    lehet bongeszobe feltelepiteni olyan extensiont hogy css valtozast automatikusan lefrissitse es nem kell ujrabuildelni a frontendet, vagy igy az egesz projektet backendestol.
+    
   

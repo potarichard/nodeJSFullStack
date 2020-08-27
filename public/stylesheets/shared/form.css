@@ -1,3 +1,4 @@
+/* The :root selector matches the document's root element. */
 :root {
   --form-label-font-size: 1.2rem;
   --form-input-background-color: hsl(var(--color-base-hue), 100%, 31%);

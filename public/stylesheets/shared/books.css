@@ -1,3 +1,4 @@
+/* The :root selector matches the document's root element. */
 :root {
   --book-cover-width: 200px;
   --book-cover-width-large: 325px;
